@@ -28,7 +28,11 @@ const __dirname = path.dirname(__filename);
 app.use(helmet());
 
 app.use(cors({
-  origin: "https://cinescope-frontend-rqhq.onrender.com",
+  origin: [
+    process.env.CLIENT_URL,
+    "https://cinescope-frontend-rqhq.onrender.com",
+    "http://localhost:5173"
+  ].filter(Boolean),
   credentials: true,
 }));
 
