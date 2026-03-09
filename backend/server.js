@@ -28,7 +28,7 @@ const __dirname = path.dirname(__filename);
 app.use(helmet());
 
 app.use(cors({
-  origin: "https://cine-scope-six-beta.vercel.app",
+  origin: "https://cine-scope-git-main-shishirs-projects-d48ead95.vercel.app/",
   credentials: true,
 }));
 
