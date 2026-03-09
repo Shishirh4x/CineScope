@@ -1,0 +1,42 @@
+/* src/layouts/AdminLayout/AdminLayout.css */
+.admin-layout { display: flex; min-height: 100vh; }
+
+.admin-sidebar {
+  width: 240px; flex-shrink: 0;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 24px 0;
+  position: fixed; top: 0; left: 0; height: 100vh;
+  z-index: 100; overflow-y: auto;
+  display: flex; flex-direction: column;
+}
+.admin-sidebar__logo {
+  padding: 0 24px 28px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px; letter-spacing: 3px; color: var(--accent);
+  display: flex; align-items: center; gap: 8px;
+}
+.admin-sidebar__spacer { flex: 1; }
+
+.admin-nav-item {
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; padding: 12px 24px;
+  font-size: 14px; font-weight: 500; color: var(--text2);
+  background: transparent; border: none; border-left: 3px solid transparent;
+  cursor: pointer; text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s;
+}
+.admin-nav-item:hover { color: var(--text); background: var(--surface2); }
+.admin-nav-item--active {
+  color: var(--accent); border-left-color: var(--accent);
+  background: rgba(232,182,74,0.07);
+}
+.admin-nav-item--danger:hover { color: var(--red); }
+
+.admin-main { margin-left: 240px; padding: 40px; flex: 1; min-height: 100vh; }
+
+@media (max-width: 768px) {
+  .admin-sidebar { display: none; }
+  .admin-main { margin-left: 0; padding: 20px; }
+}

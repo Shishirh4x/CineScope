@@ -1,0 +1,14 @@
+/* src/pages/Favorites/Favorites.css */
+.listing-page__header--flex {
+  display: flex; align-items: flex-start; justify-content: space-between;
+}
+.empty-state {
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 14px; padding: 80px 40px; color: var(--text2);
+}
+.empty-state__icon { font-size: 64px; opacity: 0.3; }
+.empty-state__text { font-size: 20px; font-weight: 700; color: var(--text); }
+.empty-state__sub  { font-size: 14px; }
+.btn-sm { padding: 7px 16px; border-radius: 8px; border: none; font-size: 12px; font-weight: 700; cursor: pointer; font-family: 'DM Sans', sans-serif; }
+.btn-danger { background: rgba(232,64,64,0.12); color: var(--red); }

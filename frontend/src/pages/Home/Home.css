@@ -1,0 +1,3 @@
+/* src/pages/Home/Home.css */
+.home-page { padding-top: 0; /* hero fills top */ }
+.home-page__sections { padding-top: 48px; }

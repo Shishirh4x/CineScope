@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Playfair+Display:ital@1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0 16px;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── CSS Variables ─── */
+:root {
+  --bg:       #08090d;
+  --bg2:      #0e1018;
+  --bg3:      #141720;
+  --surface:  #1a1e2a;
+  --surface2: #232838;
+  --border:   rgba(255,255,255,0.07);
+  --accent:   #e8b64a;
+  --accent2:  #ff6b47;
+  --accent3:  #4af0e8;
+  --text:     #f0f2f8;
+  --text2:    #8892a4;
+  --text3:    #525c70;
+  --red:      #e84a4a;
+}
+
+.light {
+  --bg:       #f8f9fa;
+  --bg2:      #e9ecef;
+  --bg3:      #dee2e6;
+  --surface:  #ffffff;
+  --surface2: #f1f3f4;
+  --border:   rgba(0,0,0,0.1);
+  --accent:   #e8b64a;
+  --accent2:  #ff6b47;
+  --accent3:  #4af0e8;
+  --text:     #212529;
+  --text2:    #6c757d;
+  --text3:    #495057;
+  --red:      #dc3545;
+
+  --red:      #e84040;
+  --green:    #3dd68c;
+}
+
+.light {
+  --bg:       #f0f2f8;
+  --bg2:      #e4e8f0;
+  --bg3:      #d8dde8;
+  --surface:  #ffffff;
+  --surface2: #f5f7fc;
+  --border:   rgba(0,0,0,0.08);
+  --text:     #0a0c14;
+  --text2:    #4a5568;
+  --text3:    #9aa5b4;
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 2px; }
+
+/* ─── Animations ─── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+@keyframes spin   { to { transform: rotate(360deg); } }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.fade-in   { animation: fadeIn  0.5s ease forwards; }
+.slide-up  { animation: slideUp 0.3s ease; }
+
+/* ─── Skeleton ─── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface)  25%,
+    var(--surface2) 50%,
+    var(--surface)  75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+/* ─── Spinner ─── */
+.spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--surface2);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ─── Utilities ─── */
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.text-accent  { color: var(--accent);  }
+.text-muted   { color: var(--text2);   }
+.truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ─── Shared Buttons ─── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);
+  color: #fff; border: none; border-radius: 12px;
+  font-size: 14px; font-weight: 700; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; letter-spacing: 0.3px;
+  transition: all 0.2s;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(232,182,74,0.3); }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 28px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  color: var(--text); border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; transition: all 0.2s;
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
+
+/* ─── Icon Button ─── */
+.icon-btn {
+  width: 38px; height: 38px; border-radius: 10px; border: none;
+  background: var(--surface); color: var(--text2);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all 0.2s; font-size: 17px;
+}
+.icon-btn:hover { background: var(--surface2); color: var(--text); }

@@ -1,0 +1,7 @@
+/* src/components/SkeletonCard/SkeletonCard.css */
+.skeleton-card { flex-shrink: 0; width: 180px; }
+.skeleton-card__poster { width: 100%; aspect-ratio: 2/3; border-radius: 14px; }
+.skeleton-card__info   { padding: 8px 0; }
+.skeleton-card__line   { height: 12px; border-radius: 6px; }
+.skeleton-card__line--long  { width: 80%; margin-bottom: 6px; }
+.skeleton-card__line--short { width: 45%; }
